@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact • Personal Webpage Showcase</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="site-title">Seyra Galadima</h1>
+        <nav aria-label="Primary">
+          <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a class="active" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <article class="card">
+        <h2>Get In Touch</h2>
+        <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+        
+        <div class="contact-links">
+          <div class="contact-item">
+            <strong>📧 Email:</strong> 
+            <a class="text-link" href="mailto:sgaladim@iu.edu">sgaladim@iu.edu</a>
+          </div>
+          <div class="contact-item">
+            <strong>💼 LinkedIn:</strong> 
+            <a class="text-link" href="https://www.linkedin.com/in/seyra-r-galadima/" target="_blank">linkedin.com/in/seyra-r-galadima</a>
+          </div>
+          <div class="contact-item">
+            <strong>💻 GitHub:</strong> 
+            <a class="text-link" href="https://github.com/sgaladim/" target="_blank">github.com/sgaladim</a>
+          </div>
+        </div>
+        <h3>Send Me a Message</h3>
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="actions">
+            <button class="button" type="submit">Send Message</button>
+            <span id="error" role="alert" class="help" aria-live="polite"></span>
+          </div>
+        </form>
+      </article>
+    </main>
+    <footer>
+      <div class="container">
+        <p>© <span id="year"></span> Seyra Galadima</p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const form = document.getElementById('contactForm');
+      const error = document.getElementById('error');
+
+      function showError(message) {
+        error.textContent = message;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        showError('');
+
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const subject = document.getElementById('subject');
+        const message = document.getElementById('message');
+
+        if (!name.checkValidity()) return showError('Please enter your full name.');
+        if (!email.checkValidity()) return showError('Please enter a valid email address.');
+        if (!subject.checkValidity()) return showError('Please enter a subject.');
+        if (!message.checkValidity()) return showError('Please enter a message.');
+
+        window.location.href = 'thankyou.html';
+      });
+    </script>
+  </body>
+  </html>
+
+

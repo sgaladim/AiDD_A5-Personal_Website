@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home • Personal Webpage Showcase</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="site-title">Seyra R. Galadima</h1>
+        <nav aria-label="Primary">
+          <ul class="nav">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <h2>Welcome!</h2>
+        <p>
+          I'm <strong>Seyra Galadima</strong>, and this site showcases my background, work,
+          and interests. Explore the pages to learn more, view selected projects,
+          and get in touch.
+        </p>
+        <a class="button" href="projects.html">See my projects</a>
+      </section>
+      <section class="highlights grid">
+        <article class="card">
+          <h3>About Me</h3>
+          <p>A short bio, interests, goals, and what I’m working on.</p>
+          <a href="about.html" class="text-link">Read more →</a>
+        </article>
+        <article class="card">
+          <h3>Resume</h3>
+          <p>Education, experience, skills, and achievements.</p>
+          <a href="resume.html" class="text-link">View resume →</a>
+        </article>
+        <article class="card">
+          <h3>Projects</h3>
+          <p>Selected projects with descriptions and links.</p>
+          <a href="projects.html" class="text-link">Browse projects →</a>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <p>© <span id="year"></span> Seyra R. Galadima</p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+  </html>
+
+
