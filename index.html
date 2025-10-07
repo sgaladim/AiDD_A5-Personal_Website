@@ -9,8 +9,9 @@
   <body>
     <header>
       <div class="container">
-        <h1 class="site-title">Seyra R. Galadima</h1>
-        <nav aria-label="Primary">
+        <h1 class="site-title">Seyra Galadima</h1>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+        <nav id="primary-nav" aria-label="Primary">
           <ul class="nav">
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -56,6 +57,14 @@
     </footer>
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+      const headerEl = document.querySelector('header');
+      const toggleBtn = document.querySelector('.nav-toggle');
+      if (toggleBtn && headerEl) {
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = headerEl.classList.toggle('open');
+          toggleBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
     </script>
   </body>
   </html>
