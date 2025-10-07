@@ -43,20 +43,25 @@
         <h3>Send Me a Message</h3>
         <form id="contactForm" novalidate>
           <div class="field">
-            <label for="name">Full Name</label>
-            <input id="name" name="name" type="text" required />
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" required />
+          </div>
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" required />
           </div>
           <div class="field">
             <label for="email">Email Address</label>
             <input id="email" name="email" type="email" required />
           </div>
           <div class="field">
-            <label for="subject">Subject</label>
-            <input id="subject" name="subject" type="text" required />
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Minimum 8 characters, include letters and numbers" required />
+            <p class="help">At least 8 characters, include letters and numbers.</p>
           </div>
           <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Must match the password requirements" required />
           </div>
           <div class="actions">
             <button class="button" type="submit">Send Message</button>
@@ -83,15 +88,17 @@
         e.preventDefault();
         showError('');
 
-        const name = document.getElementById('name');
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
         const email = document.getElementById('email');
-        const subject = document.getElementById('subject');
-        const message = document.getElementById('message');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
 
-        if (!name.checkValidity()) return showError('Please enter your full name.');
+        if (!firstName.checkValidity()) return showError('Please enter your first name.');
+        if (!lastName.checkValidity()) return showError('Please enter your last name.');
         if (!email.checkValidity()) return showError('Please enter a valid email address.');
-        if (!subject.checkValidity()) return showError('Please enter a subject.');
-        if (!message.checkValidity()) return showError('Please enter a message.');
+        if (!password.checkValidity()) return showError('Password must be at least 8 characters with letters and numbers.');
+        if (confirmPassword.value !== password.value) return showError('Passwords must match.');
 
         window.location.href = 'thankyou.html';
       });
